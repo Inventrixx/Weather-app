@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './App.css';
+import './styles/App.css'
 
-import RightComponent from "./components/right/right-side"
-
+import RightComponent from "./components/right/top-right"
+import BottomRight from "./components/right/bottom-right"
 
 const MY_API_KEY = "74d649d940124850b51175826191802";
 
@@ -12,7 +12,8 @@ class App extends Component {
     this.state = {
       cityName: "Buenos Aires",
       numForcastDays: 4,
-      isLoading: true
+      isLoading: true,
+      forecast: undefined,
 }
   }
 
@@ -27,24 +28,25 @@ class App extends Component {
       iconURL: data.current.condition.icon,
       forecast: data.forecast.forecastday
     }))
-  
+ 
   }
-    
+
     
   render() {
-    console.log(this.state)
+  
     return (
       <div>
-        <div>
+        <div className="app-container">
+        <div className="main-container">
           <h1>Título</h1>
-          <button onClick={this.updateWeatherCurrent.bind(this)}>Obtener Pronóstico de hoy.</button>
-          <button onClick={this.updateWeatherCurrent.bind(this)}>Obtener Pronóstico a 4 días.</button>
+          <button className="btn" onClick={this.updateWeatherCurrent.bind(this)}>Obtener Pronóstico</button>
         </div>
         
         
-        {!this.state.isLoading && <RightComponent 
+        {!this.state.isLoading && <RightComponent >
         temp={this.state.temp} 
-        />}
+        </RightComponent> && <BottomRight forecast={this.state.forecast}></BottomRight>}
+        </div>
       </div>
     );
   }
