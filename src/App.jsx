@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './styles/App.css'
 
-import RightComponent from "./components/right/top-right"
-import BottomRight from "./components/right/bottom-right"
+import CurrentWeather from "./components/CurrentWeather/CurrentWeather"
+import ForecastWeather from "./components/right/ForecastWeather"
 
 const MY_API_KEY = "74d649d940124850b51175826191802";
 
@@ -11,13 +11,14 @@ class App extends Component {
     super(props);
     this.state = {
       cityName: "Buenos Aires",
-      numForcastDays: 4,
+      numForcastDays: 5,
       isLoading: true,
       forecast: undefined,
+      temp: undefined,
 }
   }
 
-  updateWeatherCurrent() {
+  updateWeatherCurrent(e) {
     fetch(`http://api.apixu.com/v1/forecast.json?key=${MY_API_KEY}&q=${this.state.cityName}&days=${this.state.numForcastDays}`)
     .then(res => {return res.json()})
     .then(data => this.setState({
@@ -28,24 +29,28 @@ class App extends Component {
       iconURL: data.current.condition.icon,
       forecast: data.forecast.forecastday
     }))
- 
-  }
+    e.preventDefault() 
 
-    
+  }
   render() {
-  
+    console.log(this.state.temp)
+    const { cityName } = this.state
     return (
       <div>
         <div className="app-container">
         <div className="main-container">
-          <h1>Título</h1>
-          <button className="btn" onClick={this.updateWeatherCurrent.bind(this)}>Obtener Pronóstico</button>
+          <h1>{ cityName } Weather App!</h1>
+        
+          {!this.state.isLoading &&( <CurrentWeather
+          temp={this.state.temp}
+          isDay={this.state.isDay}
+          text={this.state.text}
+          icon={this.state.iconURL}
+    />) && (<ForecastWeather forecast={this.state.forecast} />)}
         </div>
         
         
-        {!this.state.isLoading && <RightComponent >
-        temp={this.state.temp} 
-        </RightComponent> && <BottomRight forecast={this.state.forecast}></BottomRight>}
+        
         </div>
       </div>
     );

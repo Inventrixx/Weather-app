@@ -38,6 +38,8 @@
     border: 1px solid #ddd;
     margin: 15px 0;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
   
     &:focus {
       outline: none;
