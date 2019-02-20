@@ -1,0 +1,39 @@
+.weather-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45vh;
+  text-align: center;
+}
+.weather-container .current-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.weather-container .current-container .title {
+  margin: 15px;
+  font-size: 3em;
+}
+.weather-container .current-container .icon-text-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.weather-container .current-container .icon-text-container .image {
+  width: 4em;
+  height: 4em;
+}
+.weather-container .current-container .icon-text-container .image img {
+  width: 100%;
+  height: 100%;
+}
+.weather-container .current-container .icon-text-container .temp {
+  width: 3em;
+  font-size: 25px;
+}
+.weather-container .current-container .text {
+  color: #fff;
+}
+
+/*# sourceMappingURL=styles.css.map */

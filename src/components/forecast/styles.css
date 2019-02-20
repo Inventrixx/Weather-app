@@ -1,0 +1,49 @@
+.bottom-container {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  background: -moz-linear-gradient(45deg, rgba(243, 92, 4, 0.89) 3%, rgba(243, 92, 4, 0.85) 5%, rgba(136, 51, 2, 0) 47%, rgba(0, 0, 0, 0) 100%);
+  background: -webkit-linear-gradient(45deg, rgba(243, 92, 4, 0.89) 3%, rgba(243, 92, 4, 0.85) 5%, rgba(136, 51, 2, 0) 47%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(45deg, rgba(243, 92, 4, 0.89) 3%, rgba(243, 92, 4, 0.85) 5%, rgba(136, 51, 2, 0) 47%, rgba(0, 0, 0, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#e3f35c04", endColorstr="#00000000",GradientType=1 );
+}
+.bottom-container .inner-container {
+  width: 100%;
+  height: 35vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.bottom-container .title {
+  width: 100%;
+  margin: 5px;
+  font-size: 3em;
+  text-align: center;
+}
+
+.forcastday-container {
+  width: 8em;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.forcastday-container .image {
+  width: 3em;
+  height: 3em;
+}
+.forcastday-container .image img {
+  width: 100%;
+  height: 100%;
+}
+.forcastday-container .text {
+  font-size: 14px;
+  color: #fff;
+}
+
+/*# sourceMappingURL=styles.css.map */

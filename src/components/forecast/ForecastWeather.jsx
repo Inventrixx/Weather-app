@@ -11,12 +11,16 @@ class ForecastWeather extends Component {
         const myForecastFollwingDays = myForecast.slice(1)
         return (
             <div className="bottom-container">
+            <div className="main-container">
+                <div class="title">Forecast Weather</div>
                 <div className="inner-container" > {myForecastFollwingDays.map((fc, i) => 
                 <div className="forcastday-container" key={i}>
-                    <span>{fc.date}</span> <span>{fc.day.maxtemp_c}</span>
+                
+                    <span>{fc.date}</span> <span>{fc.day.maxtemp_c}°C</span>
                     <span className="image"><img alt={fc.day.condition.text} src={fc.day.condition.icon} /></span>
                     <span className="text">{fc.day.condition.text}</span>
                 </div>)}
+            </div>
             </div>
         </div>
         

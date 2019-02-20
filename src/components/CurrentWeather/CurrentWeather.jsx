@@ -1,16 +1,31 @@
 import React, { Component } from "react"
+import "./styles.css"
 
 class CurrentWeather extends Component {
     constructor(props){
         super(props);
     }
+
+ 
     render() {
-        console.log(this.props.temp)
+       
+       const  { temp, isDay, text, icon } = this.props
         return (
             
-            <div>
-                <h1>Hola</h1>
-                <p>{this.props.temp}</p></div>
+            <div className="weather-container">
+                <div className="current-container">
+                    <span className="title">Today's weather</span>
+                    <div className="icon-text-container"> 
+                        <div class="image">
+                            <img src={icon} />
+                        </div>
+                        <span className="temp">{temp}°C</span>
+                        
+                    </div>
+                    <div><span className="text">{text}</span></div>
+                    
+                </div>
+            </div>
         
         )
     }
