@@ -16,7 +16,7 @@ class CurrentWeather extends Component {
                 <div className="current-container">
                     <span className="title">Today's weather</span>
                     <div className="icon-text-container"> 
-                        <div class="image">
+                        <div className="image">
                             <img src={icon} />
                         </div>
                         <span className="temp">{temp}°C</span>

@@ -16,38 +16,46 @@ class App extends Component {
       forecast: undefined,
       temp: undefined,
 }
+  this.getWeather = this.getWeather.bind(this)
+  }
+  
+  getWeather() {
+    fetch(`http://api.apixu.com/v1/forecast.json?key=${MY_API_KEY}&q=${this.state.cityName}&days=${this.state.numForcastDays}`)
+    .then(res => {return res.json()})
+    .then(data => this.setState({
+      isLoading: false,
+      lat: data.location.lat,
+      long: data.location.lon,
+      temp: data.current.temp_c,
+      hum: data.current.humidity,
+      isDay: data.current.is_day,
+      text: data.current.condition.text,
+      iconURL: data.current.condition.icon,
+      forecast: data.forecast.forecastday
+    }))
   }
 
   componentDidMount() {
- 
-      fetch(`http://api.apixu.com/v1/forecast.json?key=${MY_API_KEY}&q=${this.state.cityName}&days=${this.state.numForcastDays}`)
-      .then(res => {return res.json()})
-      .then(data => this.setState({
-        isLoading: false,
-        lat: data.location.lat,
-        long: data.location.lon,
-        temp: data.current.temp_c,
-        hum: data.current.humidity,
-        isDay: data.current.is_day,
-        text: data.current.condition.text,
-        iconURL: data.current.condition.icon,
-        forecast: data.forecast.forecastday
-      }))
-     
-  
+      this.getWeather();
     }
   
+    onChangeCityName(newCityName) {
+      this.setState({
+        cityName: newCityName
+      })
+      this.getWeather();
+    }
 
   
   render() {
     return (
       <div className="app-container">
-        
         <Title 
         title={this.state.cityName}
         lat={this.state.lat}
         long={this.state.long}
         hum={this.state.hum}
+        newCityName={newCityName => this.onChangeCityName(newCityName)}
         ></Title>
        
         

@@ -12,7 +12,7 @@ class ForecastWeather extends Component {
         return (
             <div className="bottom-container">
             <div className="main-container">
-                <div class="title">Forecast Weather</div>
+                <div className="title">Forecast Weather</div>
                 <div className="inner-container" > {myForecastFollwingDays.map((fc, i) => 
                 <div className="forcastday-container" key={i}>
                 
